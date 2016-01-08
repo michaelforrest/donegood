@@ -2,7 +2,7 @@ defmodule Donegood.UserSocket do
   use Phoenix.Socket
 
   ## Channels
-  # channel "rooms:*", Donegood.RoomChannel
+  channel "rooms:*", Donegood.RoomChannel
 
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket
