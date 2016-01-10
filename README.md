@@ -43,6 +43,25 @@ changeset = Deed.changeset(%Deed{}, params)
 Repo.insert changeset
 ```
 
+### Adding JS stuff
+Added coffeescript support in `package.json` with
+```
+ "coffee-script-brunch": ">= 1.8",
+ ```
+and then `npm install`. Can add these with
+```
+npm install --save react-coffee-brunch
+```
+Added
+```
+      presets: ['es2015', 'react'],
+```
+to `brunch-config.js` to get jsx templating in `app.js`, having done
+```
+npm install babel-preset-react --save
+```
+
+Also had to `npm install react-dom` and then add `react` and `react-dom` to the `whitelist`
 
 ## Learn more
 
