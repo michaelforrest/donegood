@@ -63,6 +63,14 @@ npm install babel-preset-react --save
 
 Also had to `npm install react-dom` and then add `react` and `react-dom` to the `whitelist`
 
+### Adding authentication
+Found Ueberauth / Guardian - looked at [this project ](https://github.com/wafcio/screencast_aggregator) to see how to install it
+
+### Adding additional migrations
+```
+mix ecto.gen.migration add_ueberauth_fields
+```
+
 ## Learn more
 
   * Official website: http://www.phoenixframework.org/

@@ -27,3 +27,22 @@ import_config "#{Mix.env}.exs"
 config :phoenix, :generators,
   migration: true,
   binary_id: false
+
+config :guardian, Guardian,
+  allowed_algos: ["HS512"], # optional
+  verify_module: Guardian.JWT,  # optional
+  issuer: "Donegood",
+  ttl: { 30, :days },
+  verify_issuer: true, # optional
+  secret_key: "y+L9ZbM5Mrv22SwrF+U9K6B8CLHtB1pD3NMNrSWZe+JhoIJXLMgs0EulDphDqOJr",
+  serializer: Donegood.GuardianSerializer
+
+config :ueberauth, Ueberauth,
+  providers: [
+    facebook: { Ueberauth.Strategy.Facebook, [] },
+    identity: { Ueberauth.Strategy.Identity, [] }
+  ]
+
+config :ueberauth, Ueberauth.Strategy.Facebook.OAuth,
+  client_id: System.get_env("FACEBOOK_CLIENT_ID"),
+  client_secret: System.get_env("FACEBOOK_CLIENT_SECRET")

@@ -6,13 +6,14 @@ defmodule Donegood.User do
     field :email, :string
     field :bio, :string
     field :number_of_pets, :integer
+    field :facebook_id, :string
 
     has_many :deeds, Donegood.Deed
     timestamps
   end
 
-  @required_fields ~w(name email bio)
-  @optional_fields ~w(number_of_pets)
+  @required_fields ~w(name email)
+  @optional_fields ~w(bio number_of_pets facebook_id)
 
   @doc """
   Creates a changeset based on the `model` and `params`.

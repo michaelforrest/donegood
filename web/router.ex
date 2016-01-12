@@ -8,14 +8,28 @@ defmodule Donegood.Router do
     plug :protect_from_forgery
     plug :put_secure_browser_headers
   end
+  # auth stuff copied from https://github.com/wafcio/screencast_aggregator
+  pipeline :browser_auth do
+    plug Guardian.Plug.VerifySession
+    plug Guardian.Plug.LoadResource
+  end
 
   pipeline :api do
     plug :accepts, ["json"]
   end
 
-  scope "/", Donegood do
-    pipe_through :browser # Use the default browser stack
+  scope "/auth", Donegood do
+    pipe_through [:browser, :browser_auth]
 
+    get "/logout", AuthController, :logout
+    get "/:provider", AuthController, :request
+    get "/:provider/callback", AuthController, :callback
+    post "/:provider/callback", AuthController, :callback
+  end
+
+  scope "/", Donegood do
+    pipe_through [:browser, :browser_auth]
+    
     get "/", PageController, :index
     resources "/users", UserController
     resources "/deeds", DeedController

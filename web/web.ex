@@ -29,8 +29,12 @@ defmodule Donegood.Web do
   def controller do
     quote do
       use Phoenix.Controller
+      use Guardian.Phoenix.Controller
 
       alias Donegood.Repo
+      alias Guardian.Plug.EnsureAuthenticated
+      alias Guardian.Plug.EnsurePermissions
+      
       import Ecto
       import Ecto.Query, only: [from: 1, from: 2]
 

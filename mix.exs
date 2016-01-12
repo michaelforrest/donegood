@@ -19,7 +19,8 @@ defmodule Donegood.Mixfile do
   def application do
     [mod: {Donegood, []},
      applications: [:phoenix, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex]]
+                    :phoenix_ecto, :postgrex,
+                    :ueberauth, :ueberauth_facebook, :ueberauth_identity]]
   end
 
   # Specifies which paths to compile per environment.
@@ -36,6 +37,10 @@ defmodule Donegood.Mixfile do
      {:phoenix_html, "~> 2.3"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.9"},
+     {:guardian, "~> 0.9.0"},
+     {:ueberauth, "~> 0.2"},
+     {:ueberauth_identity, "~> 0.2"},
+     {:ueberauth_facebook, "~> 0.2"},
      {:cowboy, "~> 1.0"}]
   end
 
