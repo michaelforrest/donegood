@@ -2,7 +2,7 @@ import "deps/phoenix_html/web/static/js/phoenix_html";
 // import socket from "./socket";
 import React from "react";
 import ReactDOM from "react-dom";
-import {ThingComponent} from "./thing"
+import {ThingComponentContainer} from "./thing"
 var Hello = React.createClass({
   render: function() {
     return <div>Hello {this.props.name}</div>;
@@ -11,6 +11,6 @@ var Hello = React.createClass({
 
 
 ReactDOM.render(
-  <ThingComponent />,
+  <ThingComponentContainer />,
   document.getElementById('app')
 );
