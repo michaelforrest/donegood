@@ -28,4 +28,17 @@ defmodule Donegood.AuthController do
     end
   end
 
+  def logout(conn, _params, current_user, _claims) do
+    if current_user do
+      conn
+      |> Guardian.Plug.sign_out
+      |> put_flash(:info, "Signed out")
+      |> redirect(to: "/")
+    else
+      conn
+      |> put_flash(:info, "Not logged in")
+      |> redirect(to: "/")
+    end
+    
+  end
 end

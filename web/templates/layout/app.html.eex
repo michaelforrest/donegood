@@ -16,6 +16,14 @@
       <header class="header">
         <nav role="navigation">
         </nav>
+        <span class="pull-right">
+          <%= if @current_user do %>
+            Hello <%= @current_user.name %> (<%= @current_user.id %>)
+            <a href="/auth/logout">Log out</a>
+          <% else %>
+            <a href="/auth/facebook" class="">Log in with Facebook</a>
+          <% end %>
+        </span>
         <span class="logo"></span> Donegood
       </header>
 
@@ -27,11 +35,7 @@
       </main>
 
       <p>
-        <%= if @current_user do %>
-          Hello <%= @current_user.name %>
-        <% else %>
-          <a href="login" class="">Log in</a>
-        <% end %>
+
       </p>
 
 
