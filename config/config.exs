@@ -40,9 +40,18 @@ config :guardian, Guardian,
 config :ueberauth, Ueberauth,
   providers: [
     facebook: { Ueberauth.Strategy.Facebook, [] },
-    identity: { Ueberauth.Strategy.Identity, [] }
+    twitter: { Ueberauth.Strategy.Twitter, [] },
+    identity: { Ueberauth.Strategy.Identity, [
+      callback_methods: ["POST"],
+      uid_field: :username,
+      nickname_field: :username,
+      ] }
   ]
 
 config :ueberauth, Ueberauth.Strategy.Facebook.OAuth,
   client_id: System.get_env("FACEBOOK_CLIENT_ID"),
   client_secret: System.get_env("FACEBOOK_CLIENT_SECRET")
+
+config :ueberauth, Ueberauth.Strategy.Twitter.OAuth,
+  consumer_key: System.get_env("TWITTER_CONSUMER_KEY"),
+  consumer_secret: System.get_env("TWITTER_CONSUMER_SECRET")

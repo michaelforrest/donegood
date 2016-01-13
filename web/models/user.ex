@@ -7,13 +7,14 @@ defmodule Donegood.User do
     field :bio, :string
     field :number_of_pets, :integer
     field :facebook_id, :string
+    field :twitter_id, :string
 
     has_many :deeds, Donegood.Deed
     timestamps
   end
 
-  @required_fields ~w(name email)
-  @optional_fields ~w(bio number_of_pets facebook_id)
+  @required_fields ~w() # this isn't good...
+  @optional_fields ~w(name email bio number_of_pets facebook_id twitter_id)
 
   @doc """
   Creates a changeset based on the `model` and `params`.
@@ -24,5 +25,9 @@ defmodule Donegood.User do
   def changeset(model, params \\ :empty) do
     model
     |> cast(params, @required_fields, @optional_fields)
+  end
+
+  def is_new(user) do
+    user.deeds.count == 0
   end
 end

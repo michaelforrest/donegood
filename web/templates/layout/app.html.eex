@@ -18,10 +18,11 @@
         </nav>
         <span class="pull-right">
           <%= if @current_user do %>
-            Hello <%= @current_user.name %> (<%= @current_user.id %>)
+            Hello <%= @current_user.name %> [<%= @current_user.id %>]
             <a href="/auth/logout">Log out</a>
           <% else %>
-            <a href="/auth/facebook" class="">Log in with Facebook</a>
+            <a href="/auth/facebook?scope=email,user_friends" class="">Log in with Facebook</a>
+            | <a href="/auth/twitter">Twitter</a>
           <% end %>
         </span>
         <span class="logo"></span> Donegood
@@ -33,12 +34,6 @@
       <main role="main">
         <%= render @view_module, @view_template, assigns %>
       </main>
-
-      <p>
-
-      </p>
-
-
     </div> <!-- /container -->
     <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>

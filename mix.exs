@@ -20,7 +20,7 @@ defmodule Donegood.Mixfile do
     [mod: {Donegood, []},
      applications: [:phoenix, :phoenix_html, :cowboy, :logger, :gettext,
                     :phoenix_ecto, :postgrex,
-                    :ueberauth, :ueberauth_facebook, :ueberauth_identity]]
+                    :ueberauth, :ueberauth_facebook, :ueberauth_twitter, :ueberauth_identity]]
   end
 
   # Specifies which paths to compile per environment.
@@ -41,6 +41,8 @@ defmodule Donegood.Mixfile do
      {:ueberauth, "~> 0.2"},
      {:ueberauth_identity, "~> 0.2"},
      {:ueberauth_facebook, "~> 0.2"},
+     {:ueberauth_twitter, "~> 0.2"},
+     {:oauth, github: "tim/erlang-oauth"},
      {:cowboy, "~> 1.0"}]
   end
 

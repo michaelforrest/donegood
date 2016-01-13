@@ -11,13 +11,22 @@ defmodule Donegood.UserFromAuth do
     end
   end
 
-  defp create_user_from_auth(auth) do # do pattern matching in the auth bit? I think so...
+  defp create_user_from_auth(%{provider: :facebook } = auth) do # do pattern matching in the auth bit? I think so...
     User.changeset(%User{}, %{name: auth.info.name, email: auth.info.email, facebook_id: auth.uid})
+    |> Repo.insert
+  end
+
+  defp create_user_from_auth(%{provider: :twitter} = auth) do # do pattern matching in the auth bit? I think so...
+    User.changeset(%User{}, %{name: auth.info.name, twitter_id: auth.uid})
     |> Repo.insert
   end
 
   defp auth_and_validate(%{provider: :facebook} = auth) do
     Repo.get_by(User, facebook_id: auth.uid)
+  end
+
+  defp auth_and_validate(%{provider: :twitter} = auth) do
+    Repo.get_by(User, twitter_id: auth.uid)
   end
 
   defp auth_and_validate(_auth), do: {:error, "Unsupported provider"}
