@@ -1,16 +1,7 @@
 <div class="jumbotron">
-  <%= if @current_user do %>
-    <%= if @current_user.deeds do %>
-      NO
-    <% else %>
-      Hello, you're new!
-    <% end %>
-  <% else %>
-    <h2><%= gettext "Welcome to %{name}", name: "Donegood!" %></h2>
-    <p class="lead">Helping people makes you happy</p>
-    <p>
-      <a href="signup" class="btn btn-primary">Sign up</a>
-    </p>
-  <% end %>
-
+  <h2><%= gettext "Welcome to %{name}", name: "Donegood!" %></h2>
+  <p class="lead">Helping people makes you happy</p>
+  <p>
+    <a href="/auth/facebook?scope=email,user_friends" class="btn btn-primary">Log in with Facebook</a>
+  </p>
 </div>
