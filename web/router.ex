@@ -29,8 +29,9 @@ defmodule Donegood.Router do
 
   scope "/", Donegood do
     pipe_through [:browser, :browser_auth]
-    
+
     get "/", PageController, :index
+    get "/welcome", PageController, :welcome
     resources "/users", UserController
     resources "/deeds", DeedController
   end

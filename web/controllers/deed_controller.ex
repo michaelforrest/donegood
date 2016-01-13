@@ -3,7 +3,13 @@ defmodule Donegood.DeedController do
 
   alias Donegood.Deed
 
+  plug Guardian.Plug.EnsureAuthenticated, %{ handler: Donegood.AuthErrorHandler, typ: "token" }
   plug :scrub_params, "deed" when action in [:create, :update]
+  
+
+  def new(conn, _params, current_user, _claims) do
+    render(conn, "new.html", current_user: current_user)
+  end
 
   def index(conn, _params) do
     deeds = Repo.all(Deed)
