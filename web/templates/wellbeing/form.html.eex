@@ -5,7 +5,7 @@
     </div>
   <% end %>
 
-  <%= for field <- [
+  <%= for {name,fields} <- [{"Good feelings 😀 ",[
     :appreciated,
     :well_liked,
     :confident,
@@ -16,31 +16,52 @@
     :healthy,
     :successful,
     :happy,
+  ]},{"Bad feelings 🙁", [
     :lonely,
     :exploited,
+    :frustrated,
     :taken_for_granted,
     :afraid,
     :stressed,
     :helpless,
     :angry,
-    :unhealthy,
+    :sick,
     :sad
-    ] do %>
-    <div class="form-group">
-      <%= label f, field, class: "control-label col-sm-2" %>
-      <div class="col-sm-9">
-        <%= range_input f, field, class: "form-control", min: 0, max: 10 %>
-        <%= error_tag f, field %>
+    ]}] do %>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <%= name %>
       </div>
-      <div class="col-sm-1">
-        <a href="#">[+]</a>
+      <div class="panel-body">
+        <%= for field <- fields do %>
+        <div class="row">
+          <%= label f, field, class: "control-label col-xs-3" %>
+          <div class="col-xs-8">
+            <%= range_input f, field, class: "form-control", min: 0, max: 10 %>
+            <%= error_tag f, field %>
+          </div>
+          <div class="col-xs-1">
+            <a href="#" data-field="<%=field%>" class="add-note">[+]</a>
+          </div>
+        </div>
+
+        <div class="row hidden form-group" id="<%=field%>-note">
+          <div class="col-md-12">
+            <textarea class="form-control" name="wellbeing[<%=field%>-note]" placeholder="Add notes here"></textarea>
+          </div>
+        </div>
+
+        <% end %>
       </div>
     </div>
   <% end %>
-
-
-
   <div class="form-group">
-    <%= submit "Submit", class: "btn btn-primary" %>
+    <p class="col-md-12">
+      Sorry about prompting any negative emotions. Hopefully this picture will make up for it.
+      <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQeKWa80pRczrSf0JroFcEYpSkBPAF6maHvIAGnnZuVzDOOMYrkOg" alt="" />
+    </p>
+  </div>
+  <div class="form-group col-md-12">
+    <%= submit "Save", class: "btn btn-primary" %>
   </div>
 <% end %>

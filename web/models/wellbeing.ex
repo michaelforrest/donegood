@@ -25,11 +25,12 @@ defmodule Donegood.Wellbeing do
     field :sad, :integer
 
     belongs_to :user, Donegood.User
+    has_many :notes, Donegood.WellbeingNote
 
     timestamps
   end
 
-  @required_fields ~w(appreciated well_liked)
+  @required_fields ~w(appreciated well_liked confident loved in_control respected satisfied healthy successful happy lonely exploited taken_for_granted afraid stressed helpless frustrated angry sick sad user_id notes)
   @optional_fields ~w()
 
   @doc """
