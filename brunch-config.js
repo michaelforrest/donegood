@@ -52,9 +52,7 @@ exports.config = {
       "phoenix",
       "phoenix_html",
       'react',
-      'react-dom',
-      'react-router',
-      'history'
+      'react-dom'
     ]
   }
 };
