@@ -73,6 +73,9 @@ Found Ueberauth / Guardian - looked at [this project ](https://github.com/wafcio
 mix ecto.gen.migration add_ueberauth_fields
 ```
 
+### Adding API explicitly
+Moved `wellbeing` api into `/api`. Didn't have to explicitly declare `Donegood.Api.` namespace thankfully. 
+
 ## Learn more
 
   * Official website: http://www.phoenixframework.org/

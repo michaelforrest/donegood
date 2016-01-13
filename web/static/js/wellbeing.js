@@ -1,8 +1,35 @@
-
 import React from "react";
-class WellbeingForm extends React.Component{
+
+class WellbeingFormContainer extends React.Component{
+  constructor(){
+    super()
+    this.state = {
+      wellbeing: {
+        good: [
+          "one", "two", "three"
+        ]
+      }
+    }
+  }
+  componentDidMount(){
+    $.getJSON("/wellbeings/new", json => {
+      console.log("Got soem shits back");
+      this.setState({wellbeing: json.data})
+    }
+    )
+  }
   render(){
-    return (<h1>Hello! WHY?</h1>)
+    return (<WellbeingForm wellbeing={this.state.wellbeing}/>)
   }
 }
-module.exports = { WellbeingForm }
+
+class WellbeingForm extends React.Component{
+  render(){
+    return (<form>
+        {this.props.wellbeing.good.map( function(item){
+          return (<li key={item}>{item}</li>);
+        })}
+      </form>)
+  }
+}
+module.exports = { WellbeingFormContainer }

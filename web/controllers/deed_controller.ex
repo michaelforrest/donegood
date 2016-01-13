@@ -5,7 +5,7 @@ defmodule Donegood.DeedController do
 
   plug Guardian.Plug.EnsureAuthenticated, %{ handler: Donegood.AuthErrorHandler, typ: "token" }
   plug :scrub_params, "deed" when action in [:create, :update]
-  
+
 
   def new(conn, _params, current_user, _claims) do
     render(conn, "new.html", current_user: current_user)

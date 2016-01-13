@@ -37,9 +37,9 @@ defmodule Donegood.Router do
     resources "/wellbeings", WellbeingController
   end
 
-  scope "/api", Donegood do
+  scope "/api", Donegood.Api do
     pipe_through :api
 
-    get "/stuff", StuffController, :index
+    resources "/wellbeings", WellbeingController
   end
 end

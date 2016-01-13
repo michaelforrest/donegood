@@ -19,6 +19,7 @@ defmodule Donegood.Repo.Migrations.CreateWellbeing do
       add :taken_for_granted, :integer
       add :afraid, :integer
       add :stressed, :integer
+      add :frustrated, :integer
       add :helpless, :integer
       add :angry, :integer
       add :sick, :integer

@@ -19,10 +19,11 @@ defmodule Donegood.Wellbeing do
     field :afraid, :integer
     field :stressed, :integer
     field :helpless, :integer
+    field :frustrated, :integer
     field :angry, :integer
     field :sick, :integer
     field :sad, :integer
-    
+
     belongs_to :user, Donegood.User
 
     timestamps
