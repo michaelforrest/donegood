@@ -33,6 +33,9 @@
 
       <main role="main">
         <%= render @view_module, @view_template, assigns %>
+        <div id="react-app">
+
+        </div>
       </main>
     </div> <!-- /container -->
     <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>

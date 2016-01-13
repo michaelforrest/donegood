@@ -1,0 +1,6 @@
+<h2>How do you feel?</h2>
+<p>
+  Rate each of the following ways you feel about yourself from 1-10.
+</p>
+<%= render "form.html", changeset: @changeset,
+                        action: wellbeing_path(@conn, :create) %>

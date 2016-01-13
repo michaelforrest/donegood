@@ -34,6 +34,7 @@ defmodule Donegood.Router do
     get "/welcome", PageController, :welcome
     resources "/users", UserController
     resources "/deeds", DeedController
+    resources "/wellbeings", WellbeingController
   end
 
   scope "/api", Donegood do

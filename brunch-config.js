@@ -3,22 +3,6 @@ exports.config = {
   files: {
     javascripts: {
       joinTo: "js/app.js"
-
-      // To use a separate vendor.js bundle, specify two files path
-      // https://github.com/brunch/brunch/blob/stable/docs/config.md#files
-      // joinTo: {
-      //  "js/app.js": /^(web\/static\/js)/,
-      //  "js/vendor.js": /^(web\/static\/vendor)|(deps)/
-      // }
-      //
-      // To change the order of concatenation of files, explicitly mention here
-      // https://github.com/brunch/brunch/tree/master/docs#concatenation
-      // order: {
-      //   before: [
-      //     "web/static/vendor/js/jquery-2.1.1.js",
-      //     "web/static/vendor/js/bootstrap.min.js"
-      //   ]
-      // }
     },
     stylesheets: {
       joinTo: "css/app.css"
@@ -39,8 +23,6 @@ exports.config = {
   paths: {
     // Dependencies and current project directories to watch
     watched: [
-      "deps/phoenix/web/static",
-      "deps/phoenix_html/web/static",
       "web/static",
       "test/static"
     ],
@@ -67,8 +49,12 @@ exports.config = {
   npm: {
     enabled: true,
     whitelist: [
+      "phoenix",
+      "phoenix_html",
       'react',
-      'react-dom'
+      'react-dom',
+      'react-router',
+      'history'
     ]
   }
 };
