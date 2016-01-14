@@ -1,0 +1,24 @@
+<h2>Listing deeds</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for deed <- @deeds do %>
+    <tr>
+
+      <td class="text-right">
+        <%= link "Show", to: deed_path(@conn, :show, deed), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: deed_path(@conn, :edit, deed), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: deed_path(@conn, :delete, deed), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New deed", to: deed_path(@conn, :new) %>

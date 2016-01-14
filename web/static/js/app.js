@@ -6,6 +6,8 @@ import {render} from "react-dom";
 // import { WellbeingFormContainer } from './wellbeing';
 if (document.location.pathname == "/wellbeings/new"){
   // render((<WellbeingFormContainer />), document.getElementById("react-app"))
+  // Here is the sort of nonsense I'd avoid if I knew how to
+  // integrate React properly!
   $(".add-note").click(function(event){
     event.preventDefault();
     let field = $(event.target).data("field");

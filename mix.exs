@@ -33,6 +33,8 @@ defmodule Donegood.Mixfile do
   defp deps do
     [{:phoenix, "~> 1.1.2"},
      {:phoenix_ecto, "~> 2.0"},
+     {:ecto_enum, "~> 0.3.0"},
+     {:geo, "~> 1.0"},
      {:postgrex, ">= 0.0.0"},
      {:phoenix_html, "~> 2.3"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},

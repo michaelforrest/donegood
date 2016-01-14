@@ -1,4 +1,4 @@
-defmodule Donegood.WellbeingControllerTest do
+defmodule Donegood.Api.WellbeingControllerTest do
   use Donegood.ConnCase
 
   alias Donegood.Wellbeing

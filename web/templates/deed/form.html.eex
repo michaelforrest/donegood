@@ -1,0 +1,66 @@
+<%= form_for @changeset, @action, fn f -> %>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <p>Oops, something went wrong! Please check the errors below.</p>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= text_input f, :title, class: "form-control", placeholder: "What did you do?" %>
+    <%= error_tag f, :title %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :recipient_id, "Who was this for?", class: "control-label" %>
+    <%= select f, :recipient_id, Donegood.Repo.all(Donegood.User) |> Enum.map(&{&1.name, &1.id}) %>
+    <%= error_tag f, :recipient_id %>
+  </div>
+
+  <%= hidden_input f, :user_id %>
+  <%= hidden_input f, :is_thanks %>
+
+
+  <div class="form-group">
+    <%= label f, :when, "When was this?",class: "control-label" %>
+    <%= date_select f, :when, class: "form-control" %>
+    <%= error_tag f, :when %>
+  </div>
+
+
+  <div class="form-group">
+    <%= label f, :duration, "It took...", class: "control-label" %>
+    <%= select f, :duration, [
+      "but a moment": :moment,
+      "a matter of minutes": :minutes,
+      "some hours": :hours,
+      "a few days": :days,
+      "several weeks": :weeks
+      ] %>
+    <%= error_tag f, :duration %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :privacy, class: "control-label" %>
+    <%= select f, :privacy, [
+      "private": :private,
+      "between the two of us": :participants,
+      "our friends": :friends,
+      "everyone": :public
+      ] %>
+    <%= error_tag f, :privacy %>
+  </div>
+
+  <div class="form-group">
+    <%= text_input f, :url, class: "form-control", placeholder: humanize(:url) %>
+    <%= error_tag f, :url %>
+  </div>
+
+  <div class="form-group">
+    <%= textarea f, :body, class: "form-control", placeholder: "Note" %>
+    <%= error_tag f, :body %>
+  </div>
+
+  <div class="form-group">
+    <%= submit "Submit", class: "btn btn-primary" %>
+  </div>
+<% end %>

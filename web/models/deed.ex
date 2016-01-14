@@ -2,16 +2,24 @@ defmodule Donegood.Deed do
   use Donegood.Web, :model
 
   schema "deeds" do
-    field :title, :string
-    field :body, :string
-    field :duration, :integer
+    field :title, :string # usually only this is seen really
+    field :when, Ecto.DateTime
+    field :body, :string # in "Express your gratitude" field probably
+    field :duration, DurationEnum
+    field :privacy, PrivacyEnum
+    field :url, :string
+    field :location, Geo.Point
+    field :is_thanks, :boolean
+
     belongs_to :user, Donegood.User
+    belongs_to :recipient, Donegood.User
+    belongs_to :created_by_user, Donegood.User
 
     timestamps
   end
 
-  @required_fields ~w(title body duration user_id)
-  @optional_fields ~w()
+  @required_fields ~w(title duration user_id privacy recipient_id created_by_user_id)
+  @optional_fields ~w(duration body url location is_thanks)
 
   @doc """
   Creates a changeset based on the `model` and `params`.

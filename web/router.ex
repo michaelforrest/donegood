@@ -33,13 +33,14 @@ defmodule Donegood.Router do
     get "/", PageController, :index
     get "/welcome", PageController, :welcome
     resources "/users", UserController
-    resources "/deeds", DeedController
     resources "/wellbeings", WellbeingController
+    resources "/deeds", DeedController
   end
 
   scope "/api", Donegood.Api do
     pipe_through :api
 
     resources "/wellbeings", WellbeingController
+    resources "/deeds", DeedController
   end
 end

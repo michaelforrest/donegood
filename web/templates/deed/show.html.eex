@@ -1,0 +1,8 @@
+<h2>Show deed</h2>
+
+<ul>
+
+</ul>
+
+<%= link "Edit", to: deed_path(@conn, :edit, @deed) %>
+<%= link "Back", to: deed_path(@conn, :index) %>
