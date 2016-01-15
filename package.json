@@ -7,15 +7,16 @@
     "clean-css-brunch": ">= 1.0 < 1.8",
     "coffee-script-brunch": ">= 1.8",
     "css-brunch": ">= 1.0 < 1.8",
-    "deep-equal": "^1.0.1",
     "javascript-brunch": ">= 1.0 < 1.8",
+    "jquery": "^2.2.0",
+    "phoenix": "file:deps/phoenix",
+    "phoenix_html": "file:deps/phoenix_html",
     "qs": "^6.0.1",
     "react": "^0.14.6",
     "react-brunch": "^1.0.9",
     "react-coffee-brunch": "^1.8.0",
     "react-dom": "^0.14.6",
-    "uglify-js-brunch": ">= 1.0 < 1.8",
-    "phoenix": "file:deps/phoenix",
-    "phoenix_html": "file:deps/phoenix_html"
+    "react-select": "^0.9.1",
+    "uglify-js-brunch": ">= 1.0 < 1.8"
   }
 }

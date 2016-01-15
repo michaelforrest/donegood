@@ -40,4 +40,5 @@ config :donegood, Donegood.Repo,
   password: "postgres",
   database: "donegood_dev",
   hostname: "localhost",
-  pool_size: 10
+  pool_size: 10,
+  extensions: [{Geo.PostGIS.Extension, library: Geo}]

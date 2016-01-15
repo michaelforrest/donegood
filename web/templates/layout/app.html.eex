@@ -38,7 +38,9 @@
         </div>
       </main>
     </div> <!-- /container -->
+    <!-- TODO: fix these big remote API requests -->
     <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
+    
   </body>
 </html>

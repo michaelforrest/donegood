@@ -1,3 +1,4 @@
+
 <%= form_for @changeset, @action, fn f -> %>
   <%= if @changeset.action do %>
     <div class="alert alert-danger">
@@ -48,6 +49,22 @@
       "everyone": :public
       ] %>
     <%= error_tag f, :privacy %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :location, class: "control-label" %>
+    <%= hidden_input f, :location_data %>
+    <input type="text"
+      name="location-autocomplete"
+      id="location-autocomplete"
+      autocomplete="off"
+      autocorrect="off"
+      autocapitalize="off"
+      value="">
+    <div id="location-select">
+
+    </div>
+    <%= error_tag f, :location %>
   </div>
 
   <div class="form-group">
