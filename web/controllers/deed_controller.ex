@@ -20,7 +20,11 @@ defmodule Donegood.DeedController do
   end
 
   def create(conn, %{"deed" => deed_params}, current_user, _claims) do
-    params = Map.merge deed_params, %{ "created_by_user_id" => current_user.id }
+
+    params = Map.merge deed_params, %{
+      "location" => deed_params["location_data"],
+      "created_by_user_id" => current_user.id
+     }
     changeset = Deed.changeset(%Deed{}, params)
     IO.inspect changeset
     case Repo.insert(changeset) do

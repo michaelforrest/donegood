@@ -53,7 +53,7 @@ exports.config = {
       "phoenix_html",
       'react',
       'react-dom',
-      'react-select'
+      'bootstrap'
     ]
   }
 };

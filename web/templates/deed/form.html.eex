@@ -54,16 +54,17 @@
   <div class="form-group">
     <%= label f, :location, class: "control-label" %>
     <%= hidden_input f, :location_data %>
-    <input type="text"
-      name="location-autocomplete"
-      id="location-autocomplete"
-      autocomplete="off"
-      autocorrect="off"
-      autocapitalize="off"
-      value="">
-    <div id="location-select">
-
-    </div>
+    <span id="location-tracked" class="hidden">
+      <span class="glyphicon glyphicon-ok"></span>
+      tracked.
+    </span>
+    <span id="location-unknown">
+      getting...
+    </span>
+    <span id="location-denied" class="hidden">
+      <span class="glyphicon glyphicon-remove"></span>
+      denied.
+    </span>
     <%= error_tag f, :location %>
   </div>
 
