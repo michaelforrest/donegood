@@ -11,8 +11,8 @@ defmodule Donegood do
       supervisor(Donegood.Endpoint, []),
       # Start the Ecto repository
       supervisor(Donegood.Repo, []),
-      # Here you could define other workers and supervisors as children
-      # worker(Donegood.Worker, [arg1, arg2, arg3]),
+      # Track Rewards
+      worker(Donegood.RewardsServer, [])
     ]
 
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html
