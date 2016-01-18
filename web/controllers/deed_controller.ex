@@ -2,7 +2,7 @@ defmodule Donegood.DeedController do
   use Donegood.Web, :controller
 
   alias Donegood.Deed
-  alias Donegood.RewardsServer
+  alias Donegood.AchievementsServer
 
   plug Guardian.Plug.EnsureAuthenticated, %{ handler: Donegood.AuthErrorHandler, typ: "token" }
   plug :scrub_params, "deed" when action in [:create, :update]
@@ -30,7 +30,7 @@ defmodule Donegood.DeedController do
     IO.inspect changeset
     case Repo.insert(changeset) do
       {:ok, _deed} ->
-        RewardsServer.update_user(current_user.id)
+        AchievementsServer.update_user(current_user.id)
         conn
         |> put_flash(:info, "Deed created successfully.")
         |> redirect(to: "/")

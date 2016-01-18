@@ -3,7 +3,7 @@ defmodule Donegood.DeedTest do
 
   alias Donegood.Deed
 
-  @valid_attrs %{body: "some content", duration: 42, title: "some content"}
+  @valid_attrs %{body: "some content", duration: :moment, title: "some content"}
   @invalid_attrs %{}
 
   test "changeset with valid attributes" do

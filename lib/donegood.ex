@@ -12,7 +12,7 @@ defmodule Donegood do
       # Start the Ecto repository
       supervisor(Donegood.Repo, []),
       # Track Rewards
-      worker(Donegood.RewardsServer, [])
+      worker(Donegood.AchievementsServer, [])
     ]
 
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html

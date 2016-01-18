@@ -5,7 +5,6 @@ defmodule Donegood.User do
     field :name, :string
     field :email, :string
     field :bio, :string
-    field :number_of_pets, :integer
     field :facebook_id, :string
     field :twitter_id, :string
 

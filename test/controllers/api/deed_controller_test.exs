@@ -1,12 +1,13 @@
 defmodule Donegood.Api.DeedControllerTest do
   use Donegood.ConnCase
 
-  alias Donegood.Deed
+  alias Donegood.{Deed, User}
   @valid_attrs %{body: "some content", duration: 42, title: "some content"}
   @invalid_attrs %{}
 
   setup %{conn: conn} do
     {:ok, conn: put_req_header(conn, "accept", "application/json")}
+    Repo.insert! %User{email: "user@example.com"}
   end
 
   test "lists all entries on index", %{conn: conn} do
@@ -55,6 +56,7 @@ defmodule Donegood.Api.DeedControllerTest do
   end
 
   test "deletes chosen resource", %{conn: conn} do
+    user = Repo.get_by(Deed, email: "text@example.com")
     deed = Repo.insert! %Deed{}
     conn = delete conn, deed_path(conn, :delete, deed)
     assert response(conn, 204)
