@@ -1,0 +1,7 @@
+<div class="jumbotron">
+  <h2><%= gettext "Welcome to %{name}", name: "Donegood!" %></h2>
+  <p class="lead">Helping people makes you happy</p>
+  <p>
+    <a href="/auth/facebook?scope=email,user_friends" class="btn btn-primary">Log in with Facebook</a>
+  </p>
+</div>

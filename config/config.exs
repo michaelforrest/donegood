@@ -41,6 +41,7 @@ config :ueberauth, Ueberauth,
   providers: [
     facebook: { Ueberauth.Strategy.Facebook, [] },
     twitter: { Ueberauth.Strategy.Twitter, [] },
+    google: {Ueberauth.Strategy.Google, []},
     identity: { Ueberauth.Strategy.Identity, [
       callback_methods: ["POST"],
       uid_field: :username,
@@ -55,3 +56,10 @@ config :ueberauth, Ueberauth.Strategy.Facebook.OAuth,
 config :ueberauth, Ueberauth.Strategy.Twitter.OAuth,
   consumer_key: System.get_env("TWITTER_CONSUMER_KEY"),
   consumer_secret: System.get_env("TWITTER_CONSUMER_SECRET")
+
+config :ueberauth, Ueberauth.Strategy.Google.OAuth,
+  client_id: System.get_env("GOOGLE_CLIENT_ID"),
+  client_secret: System.get_env("GOOGLE_CLIENT_SECRET")
+
+config :goth,
+  json: "priv/google/Donegood-65c2adb8482e.json" |> File.read!

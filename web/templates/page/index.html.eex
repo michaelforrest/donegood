@@ -1,7 +1,15 @@
-<div class="jumbotron">
-  <h2><%= gettext "Welcome to %{name}", name: "Donegood!" %></h2>
-  <p class="lead">Helping people makes you happy</p>
-  <p>
-    <a href="/auth/facebook?scope=email,user_friends" class="btn btn-primary">Log in with Facebook</a>
-  </p>
-</div>
+<%= unless @current_user do %>
+<%= render "_pitch.html" %>
+<%= else %>
+<%= render "_first_login.html", conn: @conn, current_user: @current_user %>
+<%= if has_enough_friends(@current_user) do %>
+  <%= render "_find_friend.html", conn: @conn, current_user: @current_user %>
+<% else %>
+  <%= render "_import_friends.html", conn: @conn, current_user: @current_user %>
+<% end %>
+<%= render "_track_wellbeing.html", conn: @conn, current_user: @current_user %>
+<%= render "_random_friends.html", conn: @conn, current_user: @current_user %>
+<%= render "_help_requests.html", conn: @conn, current_user: @current_user %>
+<%= render "_recent_achievements.html", conn: @conn, current_user: @current_user %>
+
+<% end %>

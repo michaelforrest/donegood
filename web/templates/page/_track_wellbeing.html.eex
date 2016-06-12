@@ -1,0 +1,3 @@
+<%= panel "Track your wellbeing" do %>
+  <%= link "Track now", to: wellbeing_path(@conn, :new) %>
+<% end %>

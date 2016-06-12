@@ -9,6 +9,7 @@ defmodule Donegood.Router do
     plug :put_secure_browser_headers
   end
   # auth stuff copied from https://github.com/wafcio/screencast_aggregator
+  # but I should be looking at hassox/phoenix_guardian
   pipeline :browser_auth do
     plug Guardian.Plug.VerifySession
     plug Guardian.Plug.LoadResource
@@ -31,10 +32,13 @@ defmodule Donegood.Router do
     pipe_through [:browser, :browser_auth]
 
     get "/", PageController, :index
-    get "/welcome", PageController, :welcome
+    get "/friend_search", PageController, :friend_search
     resources "/users", UserController
     resources "/wellbeings", WellbeingController
     resources "/deeds", DeedController
+    resources "/facebook_import", FacebookImportController
+    resources "/profiles", ProfileController
+    get "/google/friend_picker", GoogleController, :friend_picker
   end
 
   scope "/api", Donegood.Api do

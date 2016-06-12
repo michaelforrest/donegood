@@ -28,7 +28,7 @@ defmodule Donegood.WellbeingController do
       {:ok, _wellbeing} ->
         conn
         |> put_flash(:info, "Saved!")
-        |> redirect(to: "/welcome")
+        |> redirect(to: "/")
       {:error, changeset} ->
         render(conn, "new.html", changeset: changeset)
     end

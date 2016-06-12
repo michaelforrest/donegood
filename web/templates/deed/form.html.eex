@@ -14,12 +14,12 @@
   <div class="form-group">
     <%= label f, :recipient_id, "Who was this for?", class: "control-label" %>
     <%= select f, :recipient_id, Donegood.Repo.all(Donegood.User) |> Enum.map(&{&1.name, &1.id}) %>
+    <%= link "Gmail", to: google_path(@conn, :friend_picker) %>
     <%= error_tag f, :recipient_id %>
   </div>
 
   <%= hidden_input f, :user_id %>
   <%= hidden_input f, :is_thanks %>
-
 
   <div class="form-group">
     <%= label f, :when, "When was this?",class: "control-label" %>

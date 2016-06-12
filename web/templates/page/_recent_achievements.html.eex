@@ -1,0 +1,3 @@
+<%= panel "Recent achievements" do %>
+    Across everyone. So you can like and comment. Note that likes and comments, particularly from people involved, will affect the assigned karma.
+<% end %>

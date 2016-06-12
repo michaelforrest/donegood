@@ -1,0 +1,24 @@
+<h1>Profile</h1>
+<dl class="">
+  <dt>Number of deeds</dt>
+  <dd>
+    <%= @user.deeds |> Enum.count %>
+  </dd>
+  <dt>Number of wellbeings</dt>
+  <dd>
+    <%= @user.wellbeings |> Enum.count %>
+  </dd>
+</dl>
+
+<h3>Deeds</h3>
+<%= for deed <- @user.deeds do %>
+<div class="deed">
+  <%= deed.title %>
+  <%= deed.inserted_at %>
+</div>
+<% end %>
+
+<h3>Wellbeings</h3>
+<div class="wellbeings">
+  
+</div>

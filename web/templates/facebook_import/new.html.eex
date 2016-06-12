@@ -1,0 +1,9 @@
+<h1>Import your friends from Facebook</h1>
+<div class="">
+  <%= for friend <- @facebook_friends do %>
+  <div class="facebook-friend">
+    <%= tag(:img, src: "http://graph.facebook.com/#{friend["id"]}/picture?type=square") %>
+    <%= friend["name"] %>
+  </div>
+  <% end  %>
+</div>

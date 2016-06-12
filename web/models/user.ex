@@ -6,6 +6,11 @@ defmodule Donegood.User do
     field :email, :string
     field :bio, :string
     field :facebook_id, :string
+    field :facebook_token, :string
+
+    field :google_id, :string
+    field :google_token, :string
+
     field :twitter_id, :string
 
     has_many :deeds, Donegood.Deed
@@ -14,7 +19,7 @@ defmodule Donegood.User do
   end
 
   @required_fields ~w() # this isn't good...
-  @optional_fields ~w(name email bio number_of_pets facebook_id twitter_id)
+  @optional_fields ~w(name email bio facebook_id twitter_id facebook_token google_id google_token)
 
   @doc """
   Creates a changeset based on the `model` and `params`.

@@ -13,7 +13,6 @@ class WellbeingFormContainer extends React.Component{
   }
   componentDidMount(){
     $.getJSON("/wellbeings/new", json => {
-      console.log("Got soem shits back");
       this.setState({wellbeing: json.data})
     }
     )

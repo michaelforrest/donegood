@@ -1,0 +1,2 @@
+<%= panel("Random friends") do %>
+<% end %>

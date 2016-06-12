@@ -17,10 +17,6 @@
     <%= @user.bio %>
   </li>
 
-  <li>
-    <strong>Number of pets:</strong>
-    <%= @user.number_of_pets %>
-  </li>
 
 </ul>
 

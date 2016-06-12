@@ -1,0 +1,7 @@
+<%= panel("Find a friend") do %>
+  <%= form_for @conn, page_path(@conn, :friend_search), [as: :search, method: :get], fn f -> %>
+    <div class="form-group">
+      <%= text_input f, :query, placeholder: "Find a friend", class: "form-control" %>
+    </div>
+  <% end %>
+<% end %>

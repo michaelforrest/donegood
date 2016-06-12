@@ -18,7 +18,8 @@ defmodule Donegood.Mixfile do
   # Type `mix help compile.app` for more information.
   def application do
     [mod: {Donegood, []},
-     applications: [:phoenix, :phoenix_html, :cowboy, :logger, :gettext,
+     applications: [:goth,
+                    :phoenix, :phoenix_html, :cowboy, :logger, :gettext,
                     :phoenix_ecto, :postgrex,
                     :ueberauth, :ueberauth_facebook, :ueberauth_twitter, :ueberauth_identity]]
   end
@@ -36,6 +37,9 @@ defmodule Donegood.Mixfile do
      {:ecto_enum, "~> 0.3.0"},
      {:geo, "~> 1.0"},
      {:postgrex, ">= 0.0.0"},
+     {:httpoison, "~> 0.7"},
+     {:poison, "~> 1.2"},
+     {:goth, "~> 0.0.1"},
      {:phoenix_html, "~> 2.3"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.9"},
@@ -44,6 +48,7 @@ defmodule Donegood.Mixfile do
      {:ueberauth_identity, "~> 0.2"},
      {:ueberauth_facebook, "~> 0.2"},
      {:ueberauth_twitter, "~> 0.2"},
+     {:ueberauth_google, "~> 0.2"},
      {:oauth, github: "tim/erlang-oauth"},
      {:cowboy, "~> 1.0"}]
   end

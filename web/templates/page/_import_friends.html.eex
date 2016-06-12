@@ -1,0 +1,3 @@
+<%= panel "Find your friends on Facebook" do %>
+  <%= link "Find friends", to: facebook_import_path(@conn,:new), class: "btn btn-info" %>
+<% end %>

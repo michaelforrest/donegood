@@ -43,4 +43,11 @@ defmodule Donegood.Wellbeing do
     model
     |> cast(params, @required_fields, @optional_fields)
   end
+
+  def most_recent(user) do
+    from wellbeing in Donegood.Wellbeing,
+    where: wellbeing.user_id == ^user.id,
+    order_by: :inserted_at
+  end
+
 end

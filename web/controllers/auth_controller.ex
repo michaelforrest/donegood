@@ -39,6 +39,6 @@ defmodule Donegood.AuthController do
       |> put_flash(:info, "Not logged in")
       |> redirect(to: "/")
     end
-    
+
   end
 end

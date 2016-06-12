@@ -1,0 +1,8 @@
+<%= if @current_user do %>
+  Hello <%= link @current_user.name, to: profile_path(@conn, :show, @current_user.id) %> [<%= @current_user.id %>]
+  <a href="/auth/logout">Log out</a>
+<% else %>
+  <a href="/auth/facebook?scope=email,user_friends" class="">Log in with Facebook</a>
+  | <a href="/auth/twitter">Twitter</a>
+  | <a href="/auth/google">Google</a>
+<% end %>

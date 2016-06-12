@@ -1,0 +1,2 @@
+<%= panel "Help requests" do %>
+<% end %>
