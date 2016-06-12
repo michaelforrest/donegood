@@ -17,8 +17,10 @@
     <%= text_input f, :recipient_name, placeholder: "Recipient name" %>
     <%= text_input f, :relationship, placeholder: "Relationship" %>
     </div>
-    
-    <%= select f, :recipient_id, Donegood.Repo.all(Donegood.User) |> Enum.map(&{&1.name, &1.id}) %>
+
+    <%= select f, :recipient_id,
+      [{"--- Pick registered friend ---", nil} | Donegood.Repo.all(Donegood.User) |> Enum.map(&{&1.name, &1.id}) ]
+    %>
     <%= link "Gmail", to: google_path(@conn, :friend_picker) %>
     <%= error_tag f, :recipient_id %>
 

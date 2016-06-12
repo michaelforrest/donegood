@@ -1,0 +1,11 @@
+<%= panel "Inspiration" do %>
+<p>
+  Here are some ideas of what you can do.
+  <ul>
+    <li>What do you like doing?</li>
+    <li>What can only you do?</li>
+    <li>You don't have to do something "big" every day. Start by making someone a cup of tea or something.</li>
+
+  </ul>
+</p>
+<% end %>

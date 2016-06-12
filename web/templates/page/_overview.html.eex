@@ -1,3 +1,7 @@
 <%= panel "Welcome" do %>
   <%= link "Track a good deed", to: deed_path(@conn, :new), class: "btn btn-primary" %>
+  <p>
+    <%= render Donegood.ProfileView, "_summary.html", user: @current_user, current_user: @current_user, conn: @conn %>
+  </p>
+  <%= link "My profile", to: profile_path(@conn, :show, @current_user), class: "btn btn-info" %>
 <% end %>

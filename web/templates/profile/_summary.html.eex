@@ -1,0 +1,10 @@
+<dl class="">
+  <dt>Number of deeds</dt>
+  <dd>
+    <%= @user.deeds |> Enum.count %>
+  </dd>
+  <dt>Number of wellbeings</dt>
+  <dd>
+    <%= @user.wellbeings |> Enum.count %>
+  </dd>
+</dl>
