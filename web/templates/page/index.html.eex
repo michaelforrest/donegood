@@ -1,7 +1,11 @@
 <%= unless @current_user do %>
 <%= render "_pitch.html" %>
 <%= else %>
-<%= render "_first_login.html", conn: @conn, current_user: @current_user %>
+<%= if Enum.count(@current_user.wellbeings) == 0 do %>
+  <%= render "_first_login.html", conn: @conn, current_user: @current_user %>
+<% else %>
+  <%= render "_overview.html", conn: @conn, current_user: @current_user %>
+<% end  %>
 <%= if has_enough_friends(@current_user) do %>
   <%= render "_find_friend.html", conn: @conn, current_user: @current_user %>
 <% else %>

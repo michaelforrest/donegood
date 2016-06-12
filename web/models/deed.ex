@@ -11,6 +11,9 @@ defmodule Donegood.Deed do
     field :location, Geo.Point
     field :is_thanks, :boolean
 
+    field :recipient_name, :string # if not another Donegood user
+    field :relationship, :string # relationship with recipient
+
     belongs_to :user, Donegood.User
     belongs_to :recipient, Donegood.User
     belongs_to :created_by_user, Donegood.User
@@ -18,8 +21,8 @@ defmodule Donegood.Deed do
     timestamps
   end
 
-  @required_fields ~w(title duration user_id privacy recipient_id created_by_user_id)
-  @optional_fields ~w(duration body url location is_thanks)
+  @required_fields ~w(title duration user_id privacy created_by_user_id)
+  @optional_fields ~w(duration body recipient_id url location is_thanks recipient_name relationship )
 
   @doc """
   Creates a changeset based on the `model` and `params`.

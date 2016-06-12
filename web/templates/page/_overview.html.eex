@@ -1,0 +1,3 @@
+<%= panel "Welcome" do %>
+  <%= link "Track a good deed", to: deed_path(@conn, :new), class: "btn btn-primary" %>
+<% end %>

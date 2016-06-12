@@ -19,6 +19,12 @@ config :donegood, Donegood.Endpoint,
 # Do not print debug messages in production
 config :logger, level: :info
 
+config :donegood, Emoticast.Repo,
+  adapter: Ecto.Adapters.Postgres,
+  url: System.get_env("DATABASE_URL"),
+  ssl: true,
+  size: 20 # The number of database connections in the pool
+
 # ## SSL Support
 #
 # To get SSL working, you will need to add the `https` key
