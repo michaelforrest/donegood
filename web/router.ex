@@ -38,6 +38,7 @@ defmodule Donegood.Router do
     resources "/deeds", DeedController
     resources "/facebook_import", FacebookImportController
     resources "/profiles", ProfileController
+    resources "/ideas", IdeaController
     get "/google/friend_picker", GoogleController, :friend_picker
   end
 

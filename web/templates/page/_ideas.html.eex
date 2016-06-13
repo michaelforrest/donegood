@@ -1,0 +1,8 @@
+<%= panel "Your ideas" do  %>
+<p>
+  Have a think about what you could do for whom and write down your ideas here.
+</p>
+<p>
+  <%= link "New idea", to: idea_path(@conn, :new), class: "btn btn-small btn-primary" %>
+</p>
+<% end  %>

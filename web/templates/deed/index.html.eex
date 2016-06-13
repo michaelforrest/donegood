@@ -3,14 +3,30 @@
 <table class="table">
   <thead>
     <tr>
-
+      <th>
+        date
+      </th>
+      <th>
+        title
+      </th>
+      <th>
+        recipient name
+      </th>
       <th></th>
     </tr>
   </thead>
   <tbody>
 <%= for deed <- @deeds do %>
     <tr>
-
+      <td>
+        <%= deed.when %>
+      </td>
+      <td>
+        <%= deed.title %>
+      </td>
+      <td>
+        <%= deed.recipient_name %>
+      </td>
       <td class="text-right">
         <%= link "Show", to: deed_path(@conn, :show, deed), class: "btn btn-default btn-xs" %>
         <%= link "Edit", to: deed_path(@conn, :edit, deed), class: "btn btn-default btn-xs" %>

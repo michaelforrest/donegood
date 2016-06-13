@@ -14,6 +14,7 @@ defmodule Donegood.User do
     field :twitter_id, :string
 
     has_many :deeds, Donegood.Deed
+    has_many :ideas, Donegood.Idea
     has_many :wellbeings, Donegood.Wellbeing
     timestamps
   end

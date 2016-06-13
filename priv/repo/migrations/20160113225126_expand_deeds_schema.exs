@@ -4,7 +4,7 @@ defmodule Donegood.Repo.Migrations.ExpandDeedsSchema do
   def change do
     alter table(:deeds) do
       add :url, :text
-      add :when, :datetime
+      add :when, :date
       add :privacy, :integer
       add :location, :geometry
       add :recipient_id, references(:users, on_delete: :nothing)

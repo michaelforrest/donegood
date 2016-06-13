@@ -6,8 +6,8 @@
 <% else %>
   <%= render "_overview.html", conn: @conn, current_user: @current_user %>
 <% end  %>
-<%= render "_inspiration.html", conn: @conn %>
 <%= render "_track_wellbeing.html", conn: @conn, current_user: @current_user %>
+<%= render "_inspiration.html", conn: @conn, current_user: @current_user %>
 <%= render "_random_friends.html", conn: @conn, current_user: @current_user %>
 <%= render "_help_requests.html", conn: @conn, current_user: @current_user %>
 <%= render "_recent_achievements.html", conn: @conn, current_user: @current_user %>

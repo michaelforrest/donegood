@@ -1,11 +1,21 @@
 <%= panel "Inspiration" do %>
 <p>
+  Here are your ideas <%= link "New idea", to: idea_path(@conn, :new), class: "btn btn-xs btn-info" %>
+  <ul>
+    <%= for idea <- @current_user.ideas do %>
+      <li>
+        <%= link idea.title, to: idea_path(@conn, :edit, idea) %>
+        <%= idea.body %>
+      </li>
+    <% end %>
+  </ul>
+</p>
+<p>
   Here are some ideas of what you can do.
   <ul>
     <li>What do you like doing?</li>
     <li>What can only you do?</li>
     <li>You don't have to do something "big" every day. Start by making someone a cup of tea or something.</li>
-
   </ul>
 </p>
 <% end %>

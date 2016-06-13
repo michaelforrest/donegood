@@ -5,7 +5,7 @@
 <%= for deed <- @user.deeds do %>
 <div class="deed">
   <%= deed.title %>
-  <%= deed.inserted_at %>
+  <%= deed.when %>
 </div>
 <% end %>
 

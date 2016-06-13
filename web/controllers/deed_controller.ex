@@ -8,8 +8,8 @@ defmodule Donegood.DeedController do
   plug :scrub_params, "deed" when action in [:create, :update]
 
   def index(conn, _params, current_user, _claims) do
-    deeds = Repo.all(Deed)
-    render(conn, "index.html", deeds: deeds)
+    deeds = Repo.preload(current_user, :deeds).deeds
+    render(conn, "index.html", deeds: deeds, current_user: current_user)
   end
 
   def new(conn, _params, current_user, _claims) do
@@ -21,7 +21,7 @@ defmodule Donegood.DeedController do
   end
 
   def create(conn, %{"deed" => deed_params}, current_user, _claims) do
-
+    IO.inspect(PARAMS_BEFORE: deed_params)
     params = Map.merge deed_params, %{
       "location" => deed_params["location_data"],
       "created_by_user_id" => current_user.id
@@ -53,13 +53,14 @@ defmodule Donegood.DeedController do
   def update(conn, %{"id" => id, "deed" => deed_params}, current_user, _claims) do
     deed = Repo.get!(Deed, id)
     changeset = Deed.changeset(deed, deed_params)
-
+    IO.inspect PARAMS: deed_params
     case Repo.update(changeset) do
       {:ok, deed} ->
         conn
         |> put_flash(:info, "Deed updated successfully.")
         |> redirect(to: deed_path(conn, :show, deed))
       {:error, changeset} ->
+        IO.inspect changeset
         render(conn, "edit.html", deed: deed, changeset: changeset, current_user: current_user)
     end
   end

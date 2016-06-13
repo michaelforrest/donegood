@@ -1,0 +1,23 @@
+<h2>Show idea</h2>
+
+<ul>
+
+  <li>
+    <strong>Title:</strong>
+    <%= @idea.title %>
+  </li>
+
+  <li>
+    <strong>Recipient name:</strong>
+    <%= @idea.recipient_name %>
+  </li>
+
+  <li>
+    <strong>Body:</strong>
+    <%= @idea.body %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: idea_path(@conn, :edit, @idea) %>
+<%= link "Back", to: idea_path(@conn, :index) %>

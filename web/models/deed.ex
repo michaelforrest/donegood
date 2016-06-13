@@ -3,7 +3,7 @@ defmodule Donegood.Deed do
 
   schema "deeds" do
     field :title, :string # usually only this is seen really
-    field :when, Ecto.DateTime
+    field :when, Ecto.Date
     field :body, :string # in "Express your gratitude" field probably
     field :duration, DurationEnum
     field :privacy, PrivacyEnum
@@ -21,7 +21,7 @@ defmodule Donegood.Deed do
     timestamps
   end
 
-  @required_fields ~w(title duration user_id privacy created_by_user_id)
+  @required_fields ~w(title duration user_id privacy created_by_user_id when)
   @optional_fields ~w(duration body recipient_id url location is_thanks recipient_name relationship )
 
   @doc """
